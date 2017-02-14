@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=SCbuddy
+GenericName=SCbuddy
+Comment=start OSRS supercompost Buddy
+Categories=Game;
+Exec=java -jar /home/reprise/Dropbox/Programming/01\\ Java/SCbuddy/dist/SCbuddy.jar
+Terminal=false
+StartupNotify=false
+Type=Application
+Icon=/home/reprise/Dropbox/Programming/01 Java/SCbuddy/SCbuddy-ico.png
+Name[en_US]=SCbuddy.desktop
+Comment[en_US.UTF-8]=track osrs compost bins
