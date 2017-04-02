@@ -6,12 +6,15 @@ package scbuddy;
 public class Main {
 
     public static void main(String[] args) {
-        /*Set the look and feel*/
+        /*Set the look and feel.  Primary is GnomeToolKit+, secondary is Ninbus, otherwise fallback.*/
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+                }
+                else if("Nimbus".equals(info.getName())){
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
