@@ -6,5 +6,5 @@ If you're on Linux, the code in the repository already is capable of loading fro
 I could upload a windows **and** Linux binary that have that capability in it.
 
 ### Screenshot
-![alt tag](https://github.com/reprise5/SCbuddy/blob/master/SCbuddy-screenshot.png)
+![alt tag](https://github.com/reprise5/SCbuddy/blob/master/Screenshot.png)
 
