@@ -1,12 +1,12 @@
 package scbuddy;
 
 /**
- * @author Miss Prism
+ * @author Miss Prism (Reprise)
  */
 public class Main {
 
     public static void main(String[] args) {
-        /*Set the look and feel.  Primary is GnomeToolKit+, secondary is Ninbus, otherwise fallback.*/
+        /*Set the look and feel.  Primary is GnomeToolKit+, secondary is Nimbus, otherwise fallback.*/
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("GTK+".equals(info.getName())) {

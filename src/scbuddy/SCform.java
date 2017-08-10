@@ -1,15 +1,16 @@
 package scbuddy;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JFileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.JFrame;
 
 /**
- *
- * @author Miss Prism
+ * @author Miss Prism (Reprise)
  */
 public class SCform extends javax.swing.JFrame {
 
@@ -121,6 +122,7 @@ public class SCform extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OSRS Super Compost Buddy");
         setAlwaysOnTop(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(JFrame.class.getResource("/scbuddy/SCbuddy-ico.png")));
 
         ardySpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
 
@@ -448,9 +450,7 @@ public class SCform extends javax.swing.JFrame {
                     .addComponent(zeahLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(trollheimLabel)
                         .addComponent(trollheimDecr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -534,65 +534,120 @@ public class SCform extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_submitMenuItemActionPerformed
 
-    //set ardy to 15.
+    /*                        :: Reset/refill ::                
+     * If a bin is 14 and lower, hitting refill buttons will refill it to 15.
+     * if it is already 15, and refill is pressed, it will empty it to 0.
+     */
+    
+    //set Ardy to 15.
     private void ardyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ardyResetActionPerformed
-        ardy = 15;
-        ardySpinner.setValue(ardy);
-        ardyProgress.setValue(ardy);
         
-        //set focus to any component so when user hits enter it will save file and not decrement again.
+        if (ardy < 15 || ardy == 0){
+            ardy = 15;
+            ardySpinner.setValue(ardy);
+            ardyProgress.setValue(ardy); 
+            ardyLabel.setForeground(Color.white);
+        }
+        //the only condition left is if ardy == 15.  then empty it.
+        else{ 
+            ardy = 0;
+            ardySpinner.setValue(ardy);
+            ardyProgress.setValue(ardy); 
+            ardyLabel.setForeground(Color.red);
+        }
+        
+        //set focus to some other non-button component so when user hits enter it will save file and not decrement again.
         ardyLabel.requestFocus();
-        ardyLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_ardyResetActionPerformed
 
-    //set canifis to 15.
+    //set Canifis to 15.
     private void canifisResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canifisResetActionPerformed
-        canifis = 15;
-        canifisSpinner.setValue(canifis);
-        canifisProgress.setValue(canifis);
+        if (canifis < 15 || canifis == 0){
+            canifis = 15;
+            canifisSpinner.setValue(canifis);
+            canifisProgress.setValue(canifis);
+            canifisLabel.setForeground(Color.white);
+        }
+        else{ 
+            canifis = 0;
+            canifisSpinner.setValue(canifis);
+            canifisProgress.setValue(canifis); 
+            canifisLabel.setForeground(Color.red);
+        }
         ardyLabel.requestFocus();
-        canifisLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_canifisResetActionPerformed
 
-    //set catherby to 15.
+    //set Catherby to 15.
     private void catherbyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catherbyResetActionPerformed
-        catherby = 15;
-        catherbySpinner.setValue(catherby);
-        catherbyProgress.setValue(catherby);
+        if (catherby < 15 || catherby == 0){
+            catherby = 15;
+            catherbySpinner.setValue(catherby);
+            catherbyProgress.setValue(catherby);
+            catherbyLabel.setForeground(Color.white);
+        }
+        else{ 
+            catherby = 0;
+            catherbySpinner.setValue(catherby);
+            catherbyProgress.setValue(catherby); 
+            catherbyLabel.setForeground(Color.red);
+        }
         ardyLabel.requestFocus();
-        catherbyLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_catherbyResetActionPerformed
 
-    //set Fally to 15.
+    //set Falador to 15.
     private void fallyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fallyResetActionPerformed
-        fally = 15;
-        fallySpinner.setValue(fally);
-        fallyProgress.setValue(fally);
+        if (fally < 15 || fally == 0){
+            fally = 15;
+            fallySpinner.setValue(fally);
+            fallyProgress.setValue(fally);
+            faladorLabel.setForeground(Color.white);
+        }
+        else{ 
+            fally = 0;
+            fallySpinner.setValue(fally);
+            fallyProgress.setValue(fally); 
+            faladorLabel.setForeground(Color.red);
+        }
         ardyLabel.requestFocus();
-        faladorLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_fallyResetActionPerformed
 
     //set zeah/hosidius to 15.
     private void zeahResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeahResetActionPerformed
-        zeah = 15;
-        zeahSpinner.setValue(zeah);
-        zeahProgress.setValue(zeah);
+        if (zeah < 15 || zeah == 0){
+            zeah = 15;
+            zeahSpinner.setValue(zeah);
+            zeahProgress.setValue(zeah);
+            zeahLabel.setForeground(Color.white);
+        }
+        else{ 
+            zeah = 0;
+            zeahSpinner.setValue(zeah);
+            zeahProgress.setValue(zeah); 
+            zeahLabel.setForeground(Color.red);
+        }
         ardyLabel.requestFocus();
-        zeahLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_zeahResetActionPerformed
 
     //set trollheim to 15.
     private void trollheimResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trollheimResetActionPerformed
-        trollheim = 15;
-        trollheimSpinner.setValue(trollheim);
-        trollheimProgress.setValue(trollheim);
+        if (trollheim < 15 || trollheim  == 0){
+            trollheim  = 15;
+            trollheimSpinner.setValue(trollheim );
+            trollheimProgress.setValue(trollheim );
+            trollheimLabel.setForeground(Color.white);
+        }
+        else{ 
+            trollheim = 0;
+            trollheimSpinner.setValue(trollheim);
+            trollheimProgress.setValue(trollheim); 
+            trollheimLabel.setForeground(Color.red);
+        }
         ardyLabel.requestFocus();
-        trollheimLabel.setForeground(Color.white);
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_trollheimResetActionPerformed
 
@@ -755,8 +810,8 @@ public class SCform extends javax.swing.JFrame {
         trollheimProgress.setValue(trollheim);
     }
     
-    //alert when compost bin getting low by changing labelText color
     public void setColors(){
+        //alert when compost bin getting low by changing labelText color
         /*            --  ARDY  --               */
         if (ardy <= 4 && ardy > 0){
             ardyLabel.setForeground(Color.orange);
@@ -767,7 +822,7 @@ public class SCform extends javax.swing.JFrame {
         else {
             ardyLabel.setForeground(Color.white);
         }
-        /*            --CATHERBY--               */
+        /*            --CANIFIS--               */
         if (canifis <= 4 && canifis > 0){
             canifisLabel.setForeground(Color.orange);
         }
@@ -868,4 +923,5 @@ public class SCform extends javax.swing.JFrame {
     JFileChooser fileChooser = new JFileChooser();
     int result;
     int ardy, canifis, catherby, fally, zeah, trollheim;
+    
 }
