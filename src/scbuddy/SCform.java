@@ -6,6 +6,7 @@ import javax.swing.JFileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
@@ -29,7 +30,7 @@ public class SCform extends javax.swing.JFrame {
         trollheimProgress.setMinimum(0);
         trollheimProgress.setMaximum(15); 
         
-        //THIS IS SPECIFIC TO ME.  It loads the config at startup.  Follows hard-coded path.
+        //THIS IS SPECIFIC TO ME.  Load saved state.  Follows hard-coded path.
         File openedFile = new File("/home/reprise/Documents/scbuddy/scbuddy-config.txt");
         System.out.println("IN Selected file: " + openedFile.getAbsolutePath());         
         try {
@@ -41,23 +42,24 @@ public class SCform extends javax.swing.JFrame {
                 fally = input.nextInt();
                 zeah = input.nextInt();
                 trollheim = input.nextInt();
+                ultraBox1.setSelected(input.nextBoolean());
+                ultraBox2.setSelected(input.nextBoolean());
+                ultraBox3.setSelected(input.nextBoolean());
+                ultraBox4.setSelected(input.nextBoolean());
+                ultraBox5.setSelected(input.nextBoolean());
+                ultraBox6.setSelected(input.nextBoolean());
                 
-                statusbar.setText("Configuration File loaded Successfully.");
+                statusbar.setText("Configuration file loaded successfully.");
                 
-            System.out.println("INPUT AS FOLLOWS: \n"
-            + "ardy " + ardy
-            + "\ncanifis " + canifis
-            + "\ncatherby " + catherby
-            + "\nfally " + fally
-            + "\nzeah " + zeah
-            + "\ntrollheim " + trollheim);
             }
         } catch (FileNotFoundException e) {
             statusbar.setText("Can't open init file. Please manually open your config.");
             e.getMessage();
         }
-
-        setColors();
+        catch (InputMismatchException m) {
+            System.out.println("INIT: Input formatting error. Records 1-6 = int, records 7-12 = boolean.");
+            statusbar.setText("INIT: File format error.");
+        }
         
         ardySpinner.setValue(ardy);
         canifisSpinner.setValue(canifis);
@@ -65,7 +67,11 @@ public class SCform extends javax.swing.JFrame {
         fallySpinner.setValue(fally);
         zeahSpinner.setValue(zeah);
         trollheimSpinner.setValue(trollheim);
+        
+        // [...] checkboxes already initialized.
+
         setProgress();
+        setColors();
         //-===================================================================
     }
 
@@ -105,6 +111,12 @@ public class SCform extends javax.swing.JFrame {
         zeahDecr = new javax.swing.JButton();
         trollheimDecr = new javax.swing.JButton();
         statusbar = new javax.swing.JLabel();
+        ultraBox1 = new javax.swing.JCheckBox();
+        ultraBox2 = new javax.swing.JCheckBox();
+        ultraBox3 = new javax.swing.JCheckBox();
+        ultraBox4 = new javax.swing.JCheckBox();
+        ultraBox5 = new javax.swing.JCheckBox();
+        ultraBox6 = new javax.swing.JCheckBox();
         jMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -262,6 +274,18 @@ public class SCform extends javax.swing.JFrame {
         statusbar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         statusbar.setText("Welcome");
 
+        ultraBox1.setText("Ultra");
+
+        ultraBox2.setText("Ultra");
+
+        ultraBox3.setText("Ultra");
+
+        ultraBox4.setText("Ultra");
+
+        ultraBox5.setText("Ultra");
+
+        ultraBox6.setText("Ultra");
+
         fileMenu.setText("File");
 
         openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
@@ -335,130 +359,156 @@ public class SCform extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(statusbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ardyLabel)
+                    .addComponent(canifisLabel)
+                    .addComponent(catherbyLabel)
+                    .addComponent(faladorLabel)
+                    .addComponent(zeahLabel)
+                    .addComponent(trollheimLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(catherbyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(catherbySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(ardyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ardySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(canifisDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(canifisSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(fallyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fallySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(zeahDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(zeahSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(trollheimDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(trollheimSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)))
+                        .addGap(6, 6, 6)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ardyLabel)
-                            .addComponent(canifisLabel)
-                            .addComponent(catherbyLabel)
-                            .addComponent(faladorLabel)
-                            .addComponent(trollheimLabel)
-                            .addComponent(zeahLabel))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(trollheimDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(zeahDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ultraBox6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(trollheimSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(zeahSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(zeahReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(zeahProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(catherbyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(catherbySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(ardyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ardySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(canifisDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(canifisSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(80, 80, 80)
-                                                .addComponent(ardyProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(catherbyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(canifisReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(ardyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(catherbyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                                    .addComponent(canifisProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(fallyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(fallySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(fallyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fallyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))))
+                                .addComponent(ultraBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ardyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ultraBox2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(canifisReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ultraBox3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(catherbyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(canifisProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(catherbyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(ardyProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ultraBox4)
+                            .addComponent(ultraBox5, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fallyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(zeahReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(zeahProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(fallyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(statusbar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ardyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ardySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ardyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ardyLabel))
+                        .addComponent(ardyLabel)
+                        .addComponent(ultraBox1)
+                        .addComponent(ardyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ardyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(canifisDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(canifisSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(canifisReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(canifisLabel))
-                    .addComponent(canifisProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(canifisLabel)
+                        .addComponent(ultraBox2)
+                        .addComponent(canifisReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(canifisProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(catherbyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(catherbySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(catherbyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(catherbyLabel)
+                        .addComponent(ultraBox3)
+                        .addComponent(catherbyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(catherbyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catherbySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catherbyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(catherbyLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fallyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(fallySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fallyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fallyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(faladorLabel))))
-                    .addComponent(catherbyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ultraBox4)
+                        .addComponent(fallySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fallyDecr, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faladorLabel))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(fallyReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fallyProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zeahReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(zeahDecr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(zeahSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zeahProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zeahLabel))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(zeahDecr)
+                        .addComponent(zeahLabel))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(zeahReset)
+                        .addComponent(ultraBox5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(trollheimLabel)
-                        .addComponent(trollheimDecr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(trollheimDecr))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(trollheimSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(ultraBox6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(statusbar)
-                .addGap(11, 11, 11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,12 +528,23 @@ public class SCform extends javax.swing.JFrame {
                     catherby = input.nextInt();
                     fally = input.nextInt();
                     zeah = input.nextInt();
-                    trollheim = input.nextInt();
+                    trollheim = input.nextInt();  
+                    ultraBox1.setSelected(input.nextBoolean());
+                    ultraBox2.setSelected(input.nextBoolean());
+                    ultraBox3.setSelected(input.nextBoolean());
+                    ultraBox4.setSelected(input.nextBoolean());
+                    ultraBox5.setSelected(input.nextBoolean());
+                    ultraBox5.setSelected(input.nextBoolean());
                 }
                 statusbar.setText("Successfully opened config file.");
-            } catch (FileNotFoundException e) {
+            } 
+            catch (FileNotFoundException e) {
                 e.getMessage();
             }
+            catch (InputMismatchException m) {
+                System.out.println("OPEN: Input formatting error. Records 1-6 = int, records 7-12 = boolean.");
+            }
+            
             setColors();
             
             System.out.println("INPUT AS FOLLOWS: \n"
@@ -513,26 +574,11 @@ public class SCform extends javax.swing.JFrame {
         zeah = (int)zeahSpinner.getValue();
         trollheim = (int)trollheimSpinner.getValue();
         setProgress();
-       
-        //Specific to me.  Because It's my program.  
-        File openedFile = new File("/home/reprise/Documents/scbuddy/scbuddy-config.txt");
-         System.out.println("OUT Selected file: " + openedFile.getAbsolutePath());         
-         try {
-            PrintWriter out = new PrintWriter(openedFile);
-            out.println(ardy);
-            out.println(canifis);
-            out.println(catherby);
-            out.println(fally);
-            out.println(zeah);
-            out.println(trollheim);
-            out.close();
-            
-            statusbar.setText("Saved.");
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-            statusbar.setText("Error saving to config file.");
-        }
+        
+        //Specific to me.  Because It's my program.
+        save();
     }//GEN-LAST:event_submitMenuItemActionPerformed
+
 
     /*                        :: Reset/refill ::                
      * If a bin is 14 and lower, hitting refill buttons will refill it to 15.
@@ -541,6 +587,7 @@ public class SCform extends javax.swing.JFrame {
     
     //set Ardy to 15.
     private void ardyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ardyResetActionPerformed
+        ultraBox1.setSelected(!ultraBox1.isSelected());
         
         if (ardy < 15 || ardy == 0){
             ardy = 15;
@@ -563,6 +610,8 @@ public class SCform extends javax.swing.JFrame {
 
     //set Canifis to 15.
     private void canifisResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canifisResetActionPerformed
+        ultraBox2.setSelected(!ultraBox1.isSelected());
+        
         if (canifis < 15 || canifis == 0){
             canifis = 15;
             canifisSpinner.setValue(canifis);
@@ -581,6 +630,8 @@ public class SCform extends javax.swing.JFrame {
 
     //set Catherby to 15.
     private void catherbyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catherbyResetActionPerformed
+        ultraBox3.setSelected(!ultraBox1.isSelected());
+        
         if (catherby < 15 || catherby == 0){
             catherby = 15;
             catherbySpinner.setValue(catherby);
@@ -599,6 +650,8 @@ public class SCform extends javax.swing.JFrame {
 
     //set Falador to 15.
     private void fallyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fallyResetActionPerformed
+        ultraBox4.setSelected(!ultraBox1.isSelected());
+        
         if (fally < 15 || fally == 0){
             fally = 15;
             fallySpinner.setValue(fally);
@@ -617,6 +670,8 @@ public class SCform extends javax.swing.JFrame {
 
     //set zeah/hosidius to 15.
     private void zeahResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeahResetActionPerformed
+        ultraBox5.setSelected(!ultraBox1.isSelected());
+        
         if (zeah < 15 || zeah == 0){
             zeah = 15;
             zeahSpinner.setValue(zeah);
@@ -635,6 +690,8 @@ public class SCform extends javax.swing.JFrame {
 
     //set trollheim to 15.
     private void trollheimResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trollheimResetActionPerformed
+        ultraBox6.setSelected(!ultraBox1.isSelected());
+        
         if (trollheim < 15 || trollheim  == 0){
             trollheim  = 15;
             trollheimSpinner.setValue(trollheim );
@@ -668,32 +725,20 @@ public class SCform extends javax.swing.JFrame {
         zeahLabel.setForeground(Color.white);
         trollheimLabel.setForeground(Color.white);
         
+        ultraBox1.setSelected(false);
+        ultraBox2.setSelected(false);
+        ultraBox3.setSelected(false);
+        ultraBox4.setSelected(false);
+        ultraBox5.setSelected(false);
+        ultraBox5.setSelected(false);
+        ultraBox6.setSelected(false);
+        
         statusbar.setText("Unsaved Changes");      
     }//GEN-LAST:event_resetAllMenuItemActionPerformed
 
     //Save program state to file
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        result = fileChooser.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File openedFile = fileChooser.getSelectedFile();
-            System.out.println("OUT Selected file: " + openedFile.getAbsolutePath());          
-            try {
-                PrintWriter out = new PrintWriter(openedFile);
-                    out.println(ardy);
-                    out.println(canifis);
-                    out.println(catherby);
-                    out.println(fally);
-                    out.println(zeah);
-                    out.println(trollheim);
-                    out.close();
-                    
-                statusbar.setText("Saved.");
-
-            } catch (FileNotFoundException e) {
-                e.getMessage();
-                statusbar.setText("Error saving to config file.");
-            }
-        }
+        save();
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     //Set everything to 0
@@ -712,6 +757,14 @@ public class SCform extends javax.swing.JFrame {
         faladorLabel.setForeground(Color.red);
         zeahLabel.setForeground(Color.red);
         trollheimLabel.setForeground(Color.red);
+        
+        ultraBox1.setSelected(false);
+        ultraBox2.setSelected(false);
+        ultraBox3.setSelected(false);
+        ultraBox4.setSelected(false);
+        ultraBox5.setSelected(false);
+        ultraBox5.setSelected(false);
+        ultraBox6.setSelected(false);
         
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_blankAllMenuItemActionPerformed
@@ -873,6 +926,28 @@ public class SCform extends javax.swing.JFrame {
             trollheimLabel.setForeground(Color.white);
         }
     }
+    
+    //Save state
+    public void save(){
+        File openedFile = new File("/home/reprise/Documents/scbuddy/scbuddy-config.txt");
+        System.out.println("OUT Selected file: " + openedFile.getAbsolutePath());         
+        //Print out to file
+        try {
+            PrintWriter out = new PrintWriter(openedFile);
+                out.println( ardy + "\n" + canifis + "\n" + catherby + "\n" + fally + "\n" + zeah + "\n" + trollheim);
+                out.println(ultraBox1.isSelected() + "\n" + ultraBox2.isSelected()  + "\n" + ultraBox3.isSelected() 
+                   + "\n" + ultraBox4.isSelected() + "\n" + ultraBox5.isSelected()  + "\n" + ultraBox6.isSelected());
+                out.close();
+
+            statusbar.setText("Saved.");
+
+        } 
+        catch (FileNotFoundException e){
+            e.getMessage();
+            statusbar.setText("Error saving to config file.");
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu actionsMenu;
     private javax.swing.JButton ardyDecr;
@@ -912,6 +987,12 @@ public class SCform extends javax.swing.JFrame {
     private javax.swing.JProgressBar trollheimProgress;
     private javax.swing.JButton trollheimReset;
     private javax.swing.JSpinner trollheimSpinner;
+    private javax.swing.JCheckBox ultraBox1;
+    private javax.swing.JCheckBox ultraBox2;
+    private javax.swing.JCheckBox ultraBox3;
+    private javax.swing.JCheckBox ultraBox4;
+    private javax.swing.JCheckBox ultraBox5;
+    private javax.swing.JCheckBox ultraBox6;
     private javax.swing.JButton zeahDecr;
     private javax.swing.JLabel zeahLabel;
     private javax.swing.JProgressBar zeahProgress;
@@ -922,6 +1003,5 @@ public class SCform extends javax.swing.JFrame {
     //GLOBALS:
     JFileChooser fileChooser = new JFileChooser();
     int result;
-    int ardy, canifis, catherby, fally, zeah, trollheim;
-    
+    int ardy, canifis, catherby, fally, zeah, trollheim;   
 }

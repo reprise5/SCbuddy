@@ -132,98 +132,116 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="statusbar" max="32767" attributes="0"/>
+                  <Component id="ardyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="canifisLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="catherbyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="faladorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="zeahLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="trollheimLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ardyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="canifisLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="catherbyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="faladorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="trollheimLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="zeahLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="trollheimDecr" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Component id="zeahDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="catherbyDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="catherbySpinner" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="trollheimSpinner" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="trollheimReset" min="-2" pref="63" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="zeahSpinner" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="zeahReset" min="-2" pref="63" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="ardyDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ardySpinner" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="zeahProgress" pref="0" max="32767" attributes="0"/>
-                                  <Component id="trollheimProgress" pref="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="canifisDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="canifisSpinner" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="catherbyDecr" min="-2" pref="63" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="catherbySpinner" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="ardyDecr" min="-2" pref="63" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="ardySpinner" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="canifisDecr" min="-2" pref="63" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="canifisSpinner" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="ardyProgress" pref="140" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="catherbyReset" min="-2" pref="63" max="-2" attributes="0"/>
-                                                  <Component id="canifisReset" min="-2" pref="63" max="-2" attributes="0"/>
-                                                  <Component id="ardyReset" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="catherbyProgress" pref="0" max="32767" attributes="0"/>
-                                                  <Component id="canifisProgress" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="fallyDecr" min="-2" pref="63" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="fallySpinner" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="fallyReset" min="-2" pref="63" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fallyProgress" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="fallyDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fallySpinner" min="-2" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="zeahDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="zeahSpinner" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="trollheimDecr" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="trollheimSpinner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ultraBox6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="trollheimReset" min="-2" pref="63" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ultraBox1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ardyReset" min="-2" pref="63" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ultraBox2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="canifisReset" min="-2" pref="63" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ultraBox3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="catherbyReset" min="-2" pref="63" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="canifisProgress" pref="0" max="32767" attributes="0"/>
+                          <Component id="catherbyProgress" pref="0" max="32767" attributes="0"/>
+                          <Component id="ardyProgress" alignment="0" pref="147" max="32767" attributes="0"/>
+                          <Component id="trollheimProgress" alignment="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="ultraBox4" min="-2" max="-2" attributes="0"/>
+                          <Component id="ultraBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fallyReset" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="zeahReset" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="zeahProgress" pref="147" max="32767" attributes="0"/>
+                          <Component id="fallyProgress" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="statusbar" min="-2" pref="453" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -231,68 +249,85 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="ardyReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ardySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ardyDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="ardyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ultraBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ardyReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <Component id="ardyProgress" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="canifisDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="canifisSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="canifisReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="canifisLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ultraBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="canifisReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="canifisProgress" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="catherbyReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="catherbySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="catherbyDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="catherbyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fallyProgress" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="fallySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fallyReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="fallyDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="faladorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="canifisProgress" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="catherbyProgress" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="zeahReset" alignment="3" max="32767" attributes="0"/>
-                  <Component id="zeahDecr" alignment="3" max="32767" attributes="0"/>
-                  <Component id="zeahSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="zeahProgress" min="-2" max="-2" attributes="0"/>
-                  <Component id="zeahLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="catherbyProgress" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="catherbySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="catherbyDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="catherbyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ultraBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="catherbyReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="trollheimProgress" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ultraBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fallySpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="fallyDecr" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="faladorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="fallyReset" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="fallyProgress" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="zeahSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="zeahProgress" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="zeahDecr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="zeahLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="zeahReset" min="-2" max="-2" attributes="0"/>
+                      <Component id="ultraBox5" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="trollheimReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="trollheimProgress" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="trollheimLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="trollheimDecr" alignment="3" max="32767" attributes="0"/>
+                      <Component id="trollheimDecr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="trollheimSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="trollheimReset" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="ultraBox6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="statusbar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -533,6 +568,36 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Welcome"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ultraBox6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ultra"/>
       </Properties>
     </Component>
   </SubComponents>

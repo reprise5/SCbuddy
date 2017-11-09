@@ -4,11 +4,9 @@ GenericName=SCbuddy
 Comment=start OSRS supercompost Buddy
 Categories=Game;
 Exec=java -jar /home/reprise/Dropbox/Programming/01\\ Java/SCbuddy/dist/SCbuddy.jar
-## CHANGE this path to point to the .jar on YOUR machine. ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
 Terminal=false
 StartupNotify=false
 Type=Application
-Icon=/usr/share/pixmaps/SCbuddy-ico.png
+Icon=/home/reprise/Dropbox/Programming/01 Java/SCbuddy/SCbuddy-ico.png
 Name[en_US]=SCbuddy.desktop
 Comment[en_US.UTF-8]=track osrs compost bins
-## Then put this file in /usr/share/applications.  It'll appear in your menus.
