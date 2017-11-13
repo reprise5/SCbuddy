@@ -30,49 +30,10 @@ public class SCform extends javax.swing.JFrame {
         trollheimProgress.setMinimum(0);
         trollheimProgress.setMaximum(15); 
         
-        //THIS IS SPECIFIC TO ME.  Load saved state.  Follows hard-coded path.
-        File openedFile = new File("/home/reprise/Documents/scbuddy/scbuddy-config.txt");
-        System.out.println("IN Selected file: " + openedFile.getAbsolutePath());         
-        try {
-            Scanner input = new Scanner(openedFile);
-            while (input.hasNext()) {
-                ardy = input.nextInt();
-                canifis = input.nextInt();
-                catherby = input.nextInt();
-                fally = input.nextInt();
-                zeah = input.nextInt();
-                trollheim = input.nextInt();
-                ultraBox1.setSelected(input.nextBoolean());
-                ultraBox2.setSelected(input.nextBoolean());
-                ultraBox3.setSelected(input.nextBoolean());
-                ultraBox4.setSelected(input.nextBoolean());
-                ultraBox5.setSelected(input.nextBoolean());
-                ultraBox6.setSelected(input.nextBoolean());
-                
-                statusbar.setText("Configuration file loaded successfully.");
-                
-            }
-        } catch (FileNotFoundException e) {
-            statusbar.setText("Can't open init file. Please manually open your config.");
-            e.getMessage();
-        }
-        catch (InputMismatchException m) {
-            System.out.println("INIT: Input formatting error. Records 1-6 = int, records 7-12 = boolean.");
-            statusbar.setText("INIT: File format error.");
-        }
-        
-        ardySpinner.setValue(ardy);
-        canifisSpinner.setValue(canifis);
-        catherbySpinner.setValue(catherby);
-        fallySpinner.setValue(fally);
-        zeahSpinner.setValue(zeah);
-        trollheimSpinner.setValue(trollheim);
-        
-        // [...] checkboxes already initialized.
-
+        //This load routine uses a hard-coded path to the init file on my HDD.
+        load();
         setProgress();
         setColors();
-        //-===================================================================
     }
 
     @SuppressWarnings("unchecked")
@@ -275,16 +236,46 @@ public class SCform extends javax.swing.JFrame {
         statusbar.setText("Welcome");
 
         ultraBox1.setText("Ultra");
+        ultraBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox1ActionPerformed(evt);
+            }
+        });
 
         ultraBox2.setText("Ultra");
+        ultraBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox2ActionPerformed(evt);
+            }
+        });
 
         ultraBox3.setText("Ultra");
+        ultraBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox3ActionPerformed(evt);
+            }
+        });
 
         ultraBox4.setText("Ultra");
+        ultraBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox4ActionPerformed(evt);
+            }
+        });
 
         ultraBox5.setText("Ultra");
+        ultraBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox5ActionPerformed(evt);
+            }
+        });
 
         ultraBox6.setText("Ultra");
+        ultraBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraBox6ActionPerformed(evt);
+            }
+        });
 
         fileMenu.setText("File");
 
@@ -497,9 +488,9 @@ public class SCform extends javax.swing.JFrame {
                         .addComponent(ultraBox5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(trollheimProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(trollheimProgress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(trollheimReset, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(trollheimLabel)
                         .addComponent(trollheimDecr))
@@ -546,7 +537,6 @@ public class SCform extends javax.swing.JFrame {
             }
             
             setColors();
-            
             System.out.println("INPUT AS FOLLOWS: \n"
                 + "ardy " + ardy
                 + "\ncanifis " + canifis
@@ -584,10 +574,9 @@ public class SCform extends javax.swing.JFrame {
      * If a bin is 14 and lower, hitting refill buttons will refill it to 15.
      * if it is already 15, and refill is pressed, it will empty it to 0.
      */
-    
     //set Ardy to 15.
     private void ardyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ardyResetActionPerformed
-        ultraBox1.setSelected(!ultraBox1.isSelected());
+        ultraBox1.setSelected(false);
         
         if (ardy < 15 || ardy == 0){
             ardy = 15;
@@ -610,7 +599,7 @@ public class SCform extends javax.swing.JFrame {
 
     //set Canifis to 15.
     private void canifisResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canifisResetActionPerformed
-        ultraBox2.setSelected(!ultraBox1.isSelected());
+        ultraBox2.setSelected(false);
         
         if (canifis < 15 || canifis == 0){
             canifis = 15;
@@ -630,7 +619,7 @@ public class SCform extends javax.swing.JFrame {
 
     //set Catherby to 15.
     private void catherbyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catherbyResetActionPerformed
-        ultraBox3.setSelected(!ultraBox1.isSelected());
+        ultraBox3.setSelected(false);
         
         if (catherby < 15 || catherby == 0){
             catherby = 15;
@@ -650,7 +639,7 @@ public class SCform extends javax.swing.JFrame {
 
     //set Falador to 15.
     private void fallyResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fallyResetActionPerformed
-        ultraBox4.setSelected(!ultraBox1.isSelected());
+        ultraBox4.setSelected(false);
         
         if (fally < 15 || fally == 0){
             fally = 15;
@@ -670,7 +659,7 @@ public class SCform extends javax.swing.JFrame {
 
     //set zeah/hosidius to 15.
     private void zeahResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeahResetActionPerformed
-        ultraBox5.setSelected(!ultraBox1.isSelected());
+        ultraBox5.setSelected(false);
         
         if (zeah < 15 || zeah == 0){
             zeah = 15;
@@ -690,7 +679,7 @@ public class SCform extends javax.swing.JFrame {
 
     //set trollheim to 15.
     private void trollheimResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trollheimResetActionPerformed
-        ultraBox6.setSelected(!ultraBox1.isSelected());
+        ultraBox6.setSelected(false);
         
         if (trollheim < 15 || trollheim  == 0){
             trollheim  = 15;
@@ -841,11 +830,65 @@ public class SCform extends javax.swing.JFrame {
             trollheimSpinner.setValue(trollheim);
             trollheimProgress.setValue(trollheim);
         }    
-        //set focus to any component so when use rhits enter it will save file and not decrement again.
+        //set focus to any component so when user hits enter it will save file and not decrement again.
         ardyLabel.requestFocus();
         setColors();
         statusbar.setText("Unsaved Changes");
     }//GEN-LAST:event_trollheimDecrActionPerformed
+
+    //Ardy Checkbox change
+    private void ultraBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox1ActionPerformed
+        ardy = (int)ardySpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (ardy == 0 &&  ultraBox1.isSelected()){
+            ultraBox1.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox1ActionPerformed
+    
+    //Canifis Checkbox change
+    private void ultraBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox2ActionPerformed
+        canifis = (int)canifisSpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (canifis == 0 &&  ultraBox2.isSelected()){
+            ultraBox2.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox2ActionPerformed
+
+    //Catherby Checkbox change
+    private void ultraBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox3ActionPerformed
+        catherby = (int)catherbySpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (catherby == 0 &&  ultraBox3.isSelected()){
+            ultraBox3.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox3ActionPerformed
+
+    //Fallador Checkbox change
+    private void ultraBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox4ActionPerformed
+        fally = (int)fallySpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (fally == 0 &&  ultraBox4.isSelected()){
+            ultraBox4.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox4ActionPerformed
+
+    //Zeah Checkbox change
+    private void ultraBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox5ActionPerformed
+        zeah = (int)zeahSpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (zeah == 0 &&  ultraBox5.isSelected()){
+            ultraBox5.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox5ActionPerformed
+
+    //Trollheim Checkbox change
+    private void ultraBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraBox6ActionPerformed
+        trollheim = (int)trollheimSpinner.getValue();
+        statusbar.setText("Unsaved Changes");
+        if (trollheim == 0 &&  ultraBox6.isSelected()){
+            ultraBox6.setSelected(false);
+        }
+    }//GEN-LAST:event_ultraBox6ActionPerformed
 
     //update all progress bars based on whats in the int's.
     private void setProgress(){
@@ -947,6 +990,48 @@ public class SCform extends javax.swing.JFrame {
             statusbar.setText("Error saving to config file.");
         }
     }
+    //Load state
+    public void load(){
+        File openedFile = new File("/home/reprise/Documents/scbuddy/scbuddy-config.txt");
+        System.out.println("IN Selected file: " + openedFile.getAbsolutePath());         
+        try {
+            Scanner input = new Scanner(openedFile);
+            while (input.hasNext()) {
+                ardy = input.nextInt();
+                canifis = input.nextInt();
+                catherby = input.nextInt();
+                fally = input.nextInt();
+                zeah = input.nextInt();
+                trollheim = input.nextInt();
+                ultraBox1.setSelected(input.nextBoolean());
+                ultraBox2.setSelected(input.nextBoolean());
+                ultraBox3.setSelected(input.nextBoolean());
+                ultraBox4.setSelected(input.nextBoolean());
+                ultraBox5.setSelected(input.nextBoolean());
+                ultraBox6.setSelected(input.nextBoolean());
+                
+                statusbar.setText("Configuration file loaded successfully.");
+                
+            }
+        } catch (FileNotFoundException e) {
+            statusbar.setText("Can't open init file. Please manually open your config.");
+            e.getMessage();
+        }
+        catch (InputMismatchException m) {
+            System.out.println("INIT: Input formatting error. Records 1-6 = int, records 7-12 = boolean.");
+            statusbar.setText("INIT: File format error.");
+        }
+        
+        //put variables into components.
+        ardySpinner.setValue(ardy);
+        canifisSpinner.setValue(canifis);
+        catherbySpinner.setValue(catherby);
+        fallySpinner.setValue(fally);
+        zeahSpinner.setValue(zeah);
+        trollheimSpinner.setValue(trollheim);
+        
+        // [...] checkboxes already initialized.
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu actionsMenu;
@@ -1004,4 +1089,6 @@ public class SCform extends javax.swing.JFrame {
     JFileChooser fileChooser = new JFileChooser();
     int result;
     int ardy, canifis, catherby, fally, zeah, trollheim;   
+    //ArrayList<javax.swing.JCheckBox> ultras = new ArrayList();
+    //ultras.add(ultraBox1);
 }
